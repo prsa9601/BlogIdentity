@@ -175,21 +175,21 @@ public class AuthController : ApiController
     }
     [HttpPost("SendEmail")]
 
-    public async Task<ApiResult<string>> send(SendEmailCommand command)
+    public async Task<ApiResult<string?>> send(SendEmailCommand command)
     {
         var result = await _userFacade.SendEmail(command);
         return CommandResult(result);
     }
     [HttpPost("GenerateTokenMobile")]
 
-    public async Task<ApiResult<string>> GenerateMobileToken(GenerateTokenMobileConfirmedCommand command)
+    public async Task<ApiResult<string?>> GenerateMobileToken(GenerateTokenMobileConfirmedCommand command)
     {
         var result = await _userFacade.GenerateTokenMobileConfirmed(command);
         return CommandResult(result);
     }
     [HttpPost("GenerateTokenEmail")]
 
-    public async Task<ApiResult<string>> GenerateEmailToken(Application.User.GenerateTokenEmailConfirmed.GenerateUserTokenConfirmEmailCommand command)
+    public async Task<ApiResult<string?>> GenerateEmailToken(Application.User.GenerateTokenEmailConfirmed.GenerateUserTokenConfirmEmailCommand command)
     {
         var result = await _userFacade.GenerateTokenEmailConfirmed(command);
         return CommandResult(result);
